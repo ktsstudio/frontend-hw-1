@@ -1,0 +1,80 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "import",
+        "react",
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "rules": {
+        "curly": ["error", "all"],
+        "quotes": ["error", "single"],
+        "no-alert": "error",
+        "no-console": "error",
+        "no-redeclare": "error",
+        "no-var": "error",
+        "import/no-named-as-default": "off",
+        "no-template-curly-in-string": "error",
+        "prefer-destructuring": "warn",
+        "prefer-const": "error",
+        "prefer-arrow-callback": "error",
+        "prettier/prettier": "error",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/prefer-stateless-function": "error",
+        "react/display-name": "off",
+        "react/prop-types": "off",
+        "semi": "error",
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/naming-convention": [
+            "warn",
+            {
+                "selector": "variable",
+                "format": ["camelCase", "PascalCase", "UPPER_CASE"]
+            }
+        ],
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/ban-types": [
+            "error",
+            {
+                "extendDefaults": true,
+                "types": {
+                    "{}": false
+                }
+            }
+        ],
+        "@typescript-eslint/no-empty-function": "off"
+    },
+    "settings": {
+        "import/parsers": {
+            "typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+            "typescript": {
+                "project": "tsconfig.json"
+            }
+        }
+    }
+}
