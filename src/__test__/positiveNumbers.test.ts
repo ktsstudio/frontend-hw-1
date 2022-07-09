@@ -1,5 +1,5 @@
 import sum from '../sum';
 
 it('positive numbers', () => {
-  expect(sum(1, 2)).toBe(3);
+  expect(sum(3, 5)).toBe(8);
 });
