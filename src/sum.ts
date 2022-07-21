@@ -1,3 +1,3 @@
-const sum = (a: number, b: number): number => a + b;
+const sum = (...args: number[]): number => {};
 
 export default sum;

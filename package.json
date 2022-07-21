@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --verbose src",
+    "test:watch": "jest --verbose src --watch",
     "eslint": "eslint src --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
