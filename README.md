@@ -96,7 +96,7 @@
     `arr.remove(1);         // [null, null, 'name']`<br/>
     `arr.remove('name');    // [null, null]`<br/>
     `arr.remove(null);      // [null]`<br/>
-    `arr.remove(null).insert('2');      // ['2']`
+    `arr.remove(null).insert(0, '2');      // ['2']`
 4) `[].insert('0', null) // ошибка с кодом INVALID_ARGUMENT`
 
 ## 7. Умножение с частичным применением
