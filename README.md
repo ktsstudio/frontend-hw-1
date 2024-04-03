@@ -254,14 +254,14 @@ const graph = {
 1)	`// Предположим, в функции original — сложные вычисления` <br />
       `const original = (n) => n`<br/>
       `const memoized = memo(original, 1000);`<br/>
-      `console.log(original(1))`<br />
-      `console.log(original(1))`<br />
-      `console.log(original(2))`<br />
-      `// На данный момент original была вызвана лишь по одному разу с аргументами 1 и 2`<br />
+      `console.log(memoized(1))`<br />
+      `console.log(memoized(1))`<br />
+      `console.log(memoized(2))`<br />
+      `// На данный момент memoized была вызвана лишь по одному разу с аргументами 1 и 2`<br />
       `// Через 1 секунду`<br/>
-      `console.log(original(1))`<br />
-      `console.log(original(2))`<br />
-      `// Теперь original была вызвана лишь по два раза с аргументами 1 и 2`<br />
+      `console.log(memoized(1))`<br />
+      `console.log(memoized(2))`<br />
+      `// Теперь memoized была вызвана лишь по два раза с аргументами 1 и 2`<br />
 2) `const memoized = memo('str'); // ошибка с кодом INVALID_ARGUMENT`
 3) `const memoized = memo(() => 1, -1); // ошибка с кодом INVALID_ARGUMENT`
 
