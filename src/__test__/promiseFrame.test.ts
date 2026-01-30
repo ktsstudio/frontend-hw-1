@@ -1155,7 +1155,7 @@ describe('Функция promiseFrame', () => {
 
   it('Первый аргумент не массив', async () => {
     // @ts-ignore
-    await expect(() => promiseFrame({ a: 2 })).rejects.toThrowError(
+    await expect(() => promiseFrame({ a: 2 })).rejects.toThrow(
       /^INVALID_ARGUMENT$/
     );
   });
@@ -1163,21 +1163,21 @@ describe('Функция promiseFrame', () => {
   it('Второй аргумент не число', async () => {
     const funcs = [() => 1];
     // @ts-ignore
-    await expect(() => promiseFrame(funcs, [])).rejects.toThrowError(
+    await expect(() => promiseFrame(funcs, [])).rejects.toThrow(
       /^INVALID_ARGUMENT$/
     );
   });
 
   it('Второй аргумент число, равное нулю', async () => {
     const funcs = [() => 1];
-    await expect(() => promiseFrame(funcs, 0)).rejects.toThrowError(
+    await expect(() => promiseFrame(funcs, 0)).rejects.toThrow(
       /^INVALID_ARGUMENT$/
     );
   });
 
   it('Второй аргумент отрицательное число', async () => {
     const funcs = [() => 1];
-    await expect(() => promiseFrame(funcs, -1)).rejects.toThrowError(
+    await expect(() => promiseFrame(funcs, -1)).rejects.toThrow(
       /^INVALID_ARGUMENT$/
     );
   });
@@ -1353,31 +1353,31 @@ describe('Функция promiseFrame', () => {
 
     const result = promiseFrame(severalAsyncFuncsArray, 1);
 
-    expect(severalAsyncFuncsArray[0]).toBeCalledTimes(1);
+    expect(severalAsyncFuncsArray[0]).toHaveBeenCalledTimes(1);
     boundRange(1, 3).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
     });
 
     jest.advanceTimersByTime(100);
     await Promise.resolve();
     boundRange(0, 1).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
     });
     boundRange(2, 3).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
     });
 
     jest.advanceTimersByTime(100);
     await Promise.resolve();
     boundRange(0, 2).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
     });
-    expect(severalAsyncFuncsArray[3]).toBeCalledTimes(0);
+    expect(severalAsyncFuncsArray[3]).toHaveBeenCalledTimes(0);
 
     jest.advanceTimersByTime(100);
     await Promise.resolve();
     boundRange(0, 3).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
     });
 
     jest.advanceTimersByTime(100);
@@ -1406,10 +1406,10 @@ describe('Функция promiseFrame', () => {
 
     // 0ms
     boundRange(0, 1).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
     });
     boundRange(2, 5).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
     });
 
     // 100, 200ms
@@ -1417,10 +1417,10 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 2).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
       boundRange(3, 5).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
       });
     }
 
@@ -1429,10 +1429,10 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 3).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
       boundRange(4, 5).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
       });
     }
 
@@ -1441,16 +1441,16 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 4).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
-      expect(severalAsyncFuncsArray[5]).toBeCalledTimes(0);
+      expect(severalAsyncFuncsArray[5]).toHaveBeenCalledTimes(0);
     }
 
     // 700ms
     jest.advanceTimersByTime(100);
     await Promise.resolve();
     boundRange(0, 5).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
     });
 
     // 800, 900, 1000ms
@@ -1484,10 +1484,10 @@ describe('Функция promiseFrame', () => {
 
     // 0ms
     boundRange(0, 2).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
     });
     boundRange(3, 5).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
     });
 
     // 100, 200ms
@@ -1495,10 +1495,10 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 3).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
       boundRange(4, 5).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
       });
     }
 
@@ -1507,9 +1507,9 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 4).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
-      expect(severalAsyncFuncsArray[5]).toBeCalledTimes(0);
+      expect(severalAsyncFuncsArray[5]).toHaveBeenCalledTimes(0);
     }
 
     // 500, 600ms
@@ -1517,7 +1517,7 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 5).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
     }
 
@@ -1555,10 +1555,10 @@ describe('Функция promiseFrame', () => {
 
     // 0ms
     boundRange(0, 3).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
     });
     boundRange(4, 7).forEach((i) => {
-      expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+      expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
     });
 
     // 100, 200ms
@@ -1566,10 +1566,10 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 4).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
       boundRange(5, 7).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
       });
     }
 
@@ -1578,10 +1578,10 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 5).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
       boundRange(6, 7).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(0);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(0);
       });
     }
 
@@ -1590,9 +1590,9 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 6).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
-      expect(severalAsyncFuncsArray[7]).toBeCalledTimes(0);
+      expect(severalAsyncFuncsArray[7]).toHaveBeenCalledTimes(0);
     }
 
     // 700, 800ms
@@ -1600,7 +1600,7 @@ describe('Функция promiseFrame', () => {
       jest.advanceTimersByTime(100);
       await Promise.resolve();
       boundRange(0, 7).forEach((i) => {
-        expect(severalAsyncFuncsArray[i]).toBeCalledTimes(1);
+        expect(severalAsyncFuncsArray[i]).toHaveBeenCalledTimes(1);
       });
     }
 

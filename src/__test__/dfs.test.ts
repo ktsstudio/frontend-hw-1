@@ -92,6 +92,6 @@ describe('Функция dfs', () => {
   });
 
   it('Невалидный аргумент', () => {
-    expect(() => dfs('{}')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => dfs('{}')).toThrow(/^INVALID_ARGUMENT$/);
   });
 });

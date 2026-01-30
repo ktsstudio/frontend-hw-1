@@ -27,7 +27,7 @@ describe('Функция Sort', () => {
   });
 
   it('Аргумент не строка', () => {
-    expect(() => sort(2)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => sort(2)).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Пустая строка', () => {

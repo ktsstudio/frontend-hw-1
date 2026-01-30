@@ -38,26 +38,26 @@ describe('Функция memo', () => {
 
     // Первый вызов вызывает оригинальную функцию
     expect(memoized()).toEqual(returnValue);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     jest.advanceTimersByTime(500);
 
     // Вызов до истечения мемоизации не вызывает оригинальную функцию
     expect(memoized()).toEqual(returnValue);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     jest.advanceTimersByTime(500);
 
     // Вызов до истечения обновлённого времени мемоизации
     // не вызывает оригинальную функцию
     expect(memoized()).toEqual(returnValue);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     jest.advanceTimersByTime(1000);
 
     // Вызов после истечения мемоизации вызывает оригинальную функцию
     expect(memoized()).toEqual(returnValue);
-    expect(original).toBeCalledTimes(2);
+    expect(original).toHaveBeenCalledTimes(2);
   });
 
   it('Нет аргументов. Время мемоизации неограничено', () => {
@@ -71,7 +71,7 @@ describe('Функция memo', () => {
       expect(memoized()).toEqual(returnValue);
     });
 
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     jest.advanceTimersByTime(10000);
 
@@ -79,7 +79,7 @@ describe('Функция memo', () => {
       expect(memoized()).toEqual(returnValue);
     });
 
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
   });
 
   it('Один аргумент. Время мемоизации: 1000 мс', () => {
@@ -93,26 +93,26 @@ describe('Функция memo', () => {
 
     // Первый вызов
     expect(memoized(...firstArgs)).toEqual(firstArgs[0]);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов до истечения мемоизации
     jest.advanceTimersByTime(500);
     expect(memoized(...firstArgs)).toEqual(firstArgs[0]);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов до истечения обновлённой мемоизации
     jest.advanceTimersByTime(500);
     expect(memoized(...firstArgs)).toEqual(firstArgs[0]);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов после истечения мемоизации
     jest.advanceTimersByTime(1000);
     expect(memoized(...firstArgs)).toEqual(firstArgs[0]);
-    expect(original).toBeCalledTimes(2);
+    expect(original).toHaveBeenCalledTimes(2);
 
     // Новые аргументы
     expect(memoized(...secondArgs)).toEqual(secondArgs[0]);
-    expect(original).toBeCalledTimes(3);
+    expect(original).toHaveBeenCalledTimes(3);
   });
 
   it('Один аргумент. Время мемоизации неограничено', () => {
@@ -129,7 +129,7 @@ describe('Функция memo', () => {
       expect(memoized(...firstArgs)).toEqual(firstArgs[0]);
     });
 
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     jest.advanceTimersByTime(1000);
 
@@ -137,13 +137,13 @@ describe('Функция memo', () => {
       expect(memoized(...firstArgs)).toEqual(firstArgs[0]);
     });
 
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     range(timesToCall).forEach(() => {
       expect(memoized(...secondArgs)).toEqual(secondArgs[0]);
     });
 
-    expect(original).toBeCalledTimes(2);
+    expect(original).toHaveBeenCalledTimes(2);
   });
 
   it('Три аргумента. Время мемоизации: 1000 мс', () => {
@@ -157,26 +157,26 @@ describe('Функция memo', () => {
 
     // Первый вызов
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов до истечения мемоизации
     jest.advanceTimersByTime(500);
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов до истечения обновлённой мемоизации
     jest.advanceTimersByTime(500);
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов после истечения мемоизации
     jest.advanceTimersByTime(1000);
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(2);
+    expect(original).toHaveBeenCalledTimes(2);
 
     // Новые аргументы
     expect(memoized(...secondArgs)).toEqual(secondArgs);
-    expect(original).toBeCalledTimes(3);
+    expect(original).toHaveBeenCalledTimes(3);
   });
 
   it('Три аргумента. Время мемоизации неограничено', () => {
@@ -193,7 +193,7 @@ describe('Функция memo', () => {
       expect(memoized(...firstArgs)).toEqual(firstArgs);
     });
 
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     jest.advanceTimersByTime(1000);
 
@@ -201,13 +201,13 @@ describe('Функция memo', () => {
       expect(memoized(...firstArgs)).toEqual(firstArgs);
     });
 
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     range(timesToCall).forEach(() => {
       expect(memoized(...secondArgs)).toEqual(secondArgs);
     });
 
-    expect(original).toBeCalledTimes(2);
+    expect(original).toHaveBeenCalledTimes(2);
   });
 
   it('Три аргумента, в том числе ссылки. Время мемоизации: 1500 мс', () => {
@@ -224,26 +224,26 @@ describe('Функция memo', () => {
 
     // Первый вызов
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов до истечения мемоизации
     jest.advanceTimersByTime(1000);
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов до истечения обновлённой мемоизации
     jest.advanceTimersByTime(500);
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов после истечения мемоизации
     jest.advanceTimersByTime(1500);
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(2);
+    expect(original).toHaveBeenCalledTimes(2);
 
     // Новые аргументы
     expect(memoized(...secondArgs)).toEqual(secondArgs);
-    expect(original).toBeCalledTimes(3);
+    expect(original).toHaveBeenCalledTimes(3);
   });
 
   it('Три аргумента, в том числе ссылки. Время мемоизации: 2000 мс', () => {
@@ -260,26 +260,26 @@ describe('Функция memo', () => {
 
     // Первый вызов
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов до истечения мемоизации
     jest.advanceTimersByTime(1000);
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов до истечения обновлённой мемоизации
     jest.advanceTimersByTime(500);
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(1);
+    expect(original).toHaveBeenCalledTimes(1);
 
     // Вызов после истечения мемоизации
     jest.advanceTimersByTime(2000);
     expect(memoized(...firstArgs)).toEqual(firstArgs);
-    expect(original).toBeCalledTimes(2);
+    expect(original).toHaveBeenCalledTimes(2);
 
     // Новые аргументы
     expect(memoized(...secondArgs)).toEqual(secondArgs);
-    expect(original).toBeCalledTimes(3);
+    expect(original).toHaveBeenCalledTimes(3);
   });
 
   it('Много вызовов с множеством аргументов. Время мемоизации: 2000 мс', () => {
@@ -300,47 +300,47 @@ describe('Функция memo', () => {
     firstArgsSet.forEach((args) => {
       expect(memoized(...args)).toEqual(args);
     });
-    expect(original).toBeCalledTimes(100);
+    expect(original).toHaveBeenCalledTimes(100);
 
     // Вызов до истечения мемоизации
     jest.advanceTimersByTime(1000);
     firstArgsSet.forEach((args) => {
       expect(memoized(...args)).toEqual(args);
     });
-    expect(original).toBeCalledTimes(100);
+    expect(original).toHaveBeenCalledTimes(100);
 
     // Вызов до истечения обновлённой мемоизации
     jest.advanceTimersByTime(500);
     firstArgsSet.forEach((args) => {
       expect(memoized(...args)).toEqual(args);
     });
-    expect(original).toBeCalledTimes(100);
+    expect(original).toHaveBeenCalledTimes(100);
 
     // Вызов после истечения мемоизации
     jest.advanceTimersByTime(2000);
     firstArgsSet.forEach((args) => {
       expect(memoized(...args)).toEqual(args);
     });
-    expect(original).toBeCalledTimes(200);
+    expect(original).toHaveBeenCalledTimes(200);
 
     // Новые аргументы
     secondArgsSet.forEach((args) => {
       expect(memoized(...args)).toEqual(args);
     });
-    expect(original).toBeCalledTimes(300);
+    expect(original).toHaveBeenCalledTimes(300);
   });
 
   it('Первый аргумент не функция', () => {
     // @ts-ignore
-    expect(() => memo(123)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => memo(123)).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Второй аргумент не число', () => {
     // @ts-ignore
-    expect(() => memo(() => 1, 'a')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => memo(() => 1, 'a')).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Второй аргумент число, меньше нуля', () => {
-    expect(() => memo(() => 1, -1)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => memo(() => 1, -1)).toThrow(/^INVALID_ARGUMENT$/);
   });
 });

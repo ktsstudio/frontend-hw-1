@@ -20,25 +20,25 @@ describe('Функция Intersection', () => {
   });
 
   it('Первый аргумент не массив. Второй массив', () => {
-    expect(() => intersection('[]', [])).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => intersection('[]', [])).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Второй аргумент не массив. Первый массив', () => {
-    expect(() => intersection([], '[]')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => intersection([], '[]')).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Оба аргумента не массивы', () => {
-    expect(() => intersection({}, '1')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => intersection({}, '1')).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('В первом массиве есть не только цифры', () => {
-    expect(() => intersection(['1', 2], [2, 3])).toThrowError(
+    expect(() => intersection(['1', 2], [2, 3])).toThrow(
       /^INVALID_ELEMENT_IN_ARRAY$/
     );
   });
 
   it('Во втором массиве есть не только цифры', () => {
-    expect(() => intersection([1, 2], ['1', 2, 3])).toThrowError(
+    expect(() => intersection([1, 2], ['1', 2, 3])).toThrow(
       /^INVALID_ELEMENT_IN_ARRAY$/
     );
   });
@@ -48,12 +48,10 @@ describe('Функция Intersection', () => {
   });
 
   it('Без аргументов', () => {
-    expect(() => intersection()).toThrowError(/^INVALID_ARGUMENTS_COUNT$/);
+    expect(() => intersection()).toThrow(/^INVALID_ARGUMENTS_COUNT$/);
   });
 
   it('Один аргумент', () => {
-    expect(() => intersection([3, 2])).toThrowError(
-      /^INVALID_ARGUMENTS_COUNT$/
-    );
+    expect(() => intersection([3, 2])).toThrow(/^INVALID_ARGUMENTS_COUNT$/);
   });
 });

@@ -92,6 +92,6 @@ describe('Функция bfs', () => {
   });
 
   it('Невалидный аргумент', () => {
-    expect(() => bfs('{}')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => bfs('{}')).toThrow(/^INVALID_ARGUMENT$/);
   });
 });

@@ -19,10 +19,10 @@ describe('Функция multiply', () => {
   });
 
   it('Невалидный множитель', () => {
-    expect(() => multiply('3')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => multiply('3')).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Невалидный аргумент', () => {
-    expect(() => multiply(2)('3')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => multiply(2)('3')).toThrow(/^INVALID_ARGUMENT$/);
   });
 });

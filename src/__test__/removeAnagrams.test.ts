@@ -15,15 +15,15 @@ describe('Функция removeAnagrams', () => {
   });
 
   it('Без аргументов', () => {
-    expect(() => removeAnagrams()).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => removeAnagrams()).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Аргумент не массив', () => {
-    expect(() => removeAnagrams(undefined)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => removeAnagrams(undefined)).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Массив c числами', () => {
-    expect(() => removeAnagrams(['cat', ['act'], 2])).toThrowError(
+    expect(() => removeAnagrams(['cat', ['act'], 2])).toThrow(
       /^INVALID_ELEMENT_IN_ARRAY$/
     );
   });

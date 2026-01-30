@@ -61,7 +61,7 @@ describe('Функция patchArrays', () => {
 
   it('Метод insert. Невалидный индекс', () => {
     const arr = [];
-    expect(() => arr.insert('0', 3)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => arr.insert('0', 3)).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Метод remove. Удаление элемента существующего элемента', () => {

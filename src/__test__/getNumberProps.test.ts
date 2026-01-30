@@ -3,15 +3,15 @@ import getNumberProps from '../getNumberProps';
 
 describe('Функция getNumberProps', () => {
   it('Переданный аргумент - строка', () => {
-    expect(() => getNumberProps('{}')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => getNumberProps('{}')).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Переданный аргумент - массив', () => {
-    expect(() => getNumberProps([])).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => getNumberProps([])).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Переданный аргумент - null', () => {
-    expect(() => getNumberProps(null)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => getNumberProps(null)).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Пустой объект', () => {

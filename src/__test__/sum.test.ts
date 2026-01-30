@@ -3,7 +3,7 @@ import sum from '../sum';
 
 describe('Функция Sum', () => {
   it('Передан только один аргумент', () => {
-    expect(() => sum(3)).toThrowError(/^INVALID_ARGUMENTS_COUNT$/);
+    expect(() => sum(3)).toThrow(/^INVALID_ARGUMENTS_COUNT$/);
   });
 
   it('2 валидных аргумента', () => {
@@ -11,11 +11,11 @@ describe('Функция Sum', () => {
   });
 
   it('Без аргументов', () => {
-    expect(() => sum()).toThrowError(/^INVALID_ARGUMENTS_COUNT$/);
+    expect(() => sum()).toThrow(/^INVALID_ARGUMENTS_COUNT$/);
   });
 
   it('2 валидных и 2 невалидных аргумента', () => {
-    expect(() => sum({}, [], 5, 2)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => sum({}, [], 5, 2)).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('2 отрицательных аргумента', () => {

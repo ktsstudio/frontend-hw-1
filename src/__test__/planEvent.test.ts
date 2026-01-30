@@ -40,12 +40,10 @@ describe('Функция planEvent', () => {
   });
 
   it('Первый аргумент невалиден', () => {
-    expect(() => planEvent('2', 100)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => planEvent('2', 100)).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Второй аргумент невалиден', () => {
-    expect(() => planEvent(() => 'Done', '100')).toThrowError(
-      /^INVALID_ARGUMENT$/
-    );
+    expect(() => planEvent(() => 'Done', '100')).toThrow(/^INVALID_ARGUMENT$/);
   });
 });

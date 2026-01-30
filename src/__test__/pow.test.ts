@@ -7,15 +7,15 @@ describe('Функция Pow', () => {
   });
 
   it('Первый вариант использования. Степень не число', () => {
-    expect(() => pow(4, '5')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => pow(4, '5')).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Первый вариант использования. Аргумент не число', () => {
-    expect(() => pow('2', 3)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => pow('2', 3)).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Первый вариант использования. Все аргументы не числа', () => {
-    expect(() => pow('2', '3')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => pow('2', '3')).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Первый вариант использования. Степень 0', () => {
@@ -39,15 +39,15 @@ describe('Функция Pow', () => {
   });
 
   it('Второй вариант использования. Все не числа', () => {
-    expect(() => pow([])('5')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => pow([])('5')).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Второй вариант использования. Степень не число', () => {
-    expect(() => pow(2)('1')).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => pow(2)('1')).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Второй вариант использования. Аргумент не число', () => {
-    expect(() => pow([])(2)).toThrowError(/^INVALID_ARGUMENT$/);
+    expect(() => pow([])(2)).toThrow(/^INVALID_ARGUMENT$/);
   });
 
   it('Второй вариант использования. Все числа', () => {
